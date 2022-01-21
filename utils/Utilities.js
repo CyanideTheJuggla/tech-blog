@@ -11,5 +11,12 @@ module.exports = {
         if (obj) {
             console.log('', obj);
         }
-    }
-}
+    },
+    format_time: (date) => {
+        return date.toLocaleTimeString();
+    },
+    format_date: (date) => {
+        const rawDate = new Date(date);
+        return `${rawDate.getMonth() + 1}/${rawDate.getDate()}/${rawDate.getFullYear()}`;
+    },
+};
