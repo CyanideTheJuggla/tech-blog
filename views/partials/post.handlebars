@@ -1,0 +1,20 @@
+<div class="card my-3 py-2 bg-secondary text-light">
+    <div class="card-header">
+        <h4>{{title}}</h4>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            {{content}}
+        </p>
+    </div>
+    <div class="card-footer text-black-50 d-flex justify-content-end">
+        posted by {{user.username}} on {{format_date dateCreated}}
+    </div>
+    {{#if comments > 0}}
+    <ul class="list-group list-group-flush mx-2 my-1 rounded-0 comment-group">
+        {{#each comment}}
+            
+        {{/each}}
+    </ul>
+    {{/if}}
+</div>

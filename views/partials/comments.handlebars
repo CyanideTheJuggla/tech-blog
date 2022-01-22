@@ -1,0 +1,10 @@
+<div class="card text-white bg-comment comment-card">
+    <div class="card-body">
+        <p class="card-text lh-1">
+            {{post.comment.content}}
+        </p>
+    </div>
+    <div class="card-footer text-white-50 d-flex justify-content-end">
+        comment by {{post.comment.user.username}} on {{format_date post.comment.dateCreated}}
+    </div>
+</div>
