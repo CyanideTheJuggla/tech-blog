@@ -1,20 +1,41 @@
-<div class="card my-3 py-2 bg-secondary text-light">
+<div class="card my-3 py-2 bg-secondary text-light {{#if currentUser}} border border-3 border-success {{/if}}">
     <div class="card-header">
-        <h4>{{title}}</h4>
+        {{#if currentUser}}
+            <a href="/dash/edit/{{id}}" class="text-reset text-decoration-none">
+                <span class="material-icons float-end">edit</span>
+            </a>
+        {{/if}}
+        <a href="/post/{{id}}" class="text-reset text-decoration-none">
+            <h4>{{title}}</h4>
+        </a>
+        
     </div>
     <div class="card-body">
         <p class="card-text">
-            {{content}}
+            {{{content}}}
         </p>
     </div>
     <div class="card-footer text-black-50 d-flex justify-content-end">
-        posted by {{user.username}} on {{format_date dateCreated}}
+        posted by {{user.username}} on {{format_date postDate}}
     </div>
-    {{#if comments > 0}}
-    <ul class="list-group list-group-flush mx-2 my-1 rounded-0 comment-group">
-        {{#each comment}}
-            
-        {{/each}}
+    <ul class="list-group list-group-flush mx-2 my-1 rounded-0 comment-group border-0">
+        {{#if comments}}
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item bg-secondary bg-gradient border border-1 border-comments">
+                    <h2 class="accordion-header text-reset" id="heading{{id}}">
+                        <button class="accordion-button bg-secondary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{id}}" aria-expanded="true" aria-controls="collapse{{id}}">
+                            Comments ({{comments.length}})
+                        </button>
+                    </h2>
+                    <div id="collapse{{id}}" class="accordion-collapse collapse" aria-labelledby="heading{{id}}" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {{#each comments as |comment|}}
+                                {{>comment comment}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
     </ul>
-    {{/if}}
 </div>

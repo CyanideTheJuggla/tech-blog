@@ -1,0 +1,21 @@
+<div class="alert alert-danger mt-3 d-none" role="alert">
+    <strong>Uh oh!</strong> Your post was unable to be submitted. Refresh the page and try again!
+</div>
+<div class="card bg-secondary text-light mt-3">
+    <div class="card-header">
+        New Post
+    </div>
+    <div class="card-body">
+        <div class="mb-3 ">
+            <label for="postTitle" class="form-label" >Post Title</label>
+            <input type="text" class="form-control bg-dark text-white" id="postTitle" placeholder="Title">
+            <br>
+            <label for="postContent" class="form-label" >Content</label>
+            <textarea class="form-control bg-dark text-white" id="postContent" rows="6" placeholder="Enter text here"></textarea>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" id="btnSubmitPost" class="btn btn-primary float-end">Submit</button>
+    </div>
+</div>
+<script type="text/javascript" src="../public/js/post.js"></script>

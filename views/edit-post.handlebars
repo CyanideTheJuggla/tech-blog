@@ -1,0 +1,22 @@
+<div class="alert alert-danger mt-3 d-none" role="alert">
+    <strong>Uh oh!</strong> Your post was unable to be submitted. Redirecting you to the post, try editing again. 
+</div>
+<div class="card bg-secondary text-light mt-3">
+    <div class="card-header">
+        Edit Post
+    </div>
+    <div class="card-body">
+        <div class="mb-3 ">
+            <label for="postTitle" class="form-label" >Post Title</label>
+            <input type="text" class="form-control bg-dark text-white" id="postTitle" placeholder="Title" value="{{post.title}}">
+            <br>
+            <label for="postContent" class="form-label" >Content</label>
+            <textarea class="form-control bg-dark text-white" id="postContent" rows="6" placeholder="Enter text here">{{post.content}}</textarea>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" id="btnSubmitEdit" class="btn btn-primary float-end">Done</button>
+        <button type="button" id="btnSubmitDelete" class="btn btn-danger float-start">Delete</button>
+    </div>
+</div>
+<script type="text/javascript" src="../../public/js/edit.js"></script>

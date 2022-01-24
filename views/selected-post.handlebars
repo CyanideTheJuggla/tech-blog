@@ -1,0 +1,9 @@
+{{>post post}}
+<div class="bg-secondary pb-3 {{#if post.currentUser}} border border-3 border-success border-top-0 {{/if}}" style="position: relative; top: -20px;">
+    <hr>
+    <div class="d-flex justify-content-evenly">
+        <input type="text" class="form-control bg-dark text-light mx-3" style="width: 85%;" id="inputComment" placeholder="Add your comment">
+        <button type="button" class="btn btn-primary btn-sm float-end rounded-max" id="btnSubmitComment">Add Comment</button>
+    </div>
+</div>
+<script type="text/javascript" src="../public/js/comment.js"></script>

@@ -1,16 +1,17 @@
 module.exports = {
-    formatCurrency: (moneyString) => {
-        let retVal = '';
-
-        return retVal
-    },
     Log: (msg, obj) => {
         const messageParts = msg.match(/.{1,100}/g);
-        messageParts.forEach(message => {
+        if (messageParts) {
+            messageParts.forEach(message => {
+                const time = new Date();
+                const timeStamp = `[${time.getFullYear()}/${time.getMonth() + 1}/${time.getDate()} | ${time.toLocaleTimeString('en-US', { hour12: false })}(${time.getMilliseconds()})] > `;
+                console.log(timeStamp + message);
+            });
+        } else {
             const time = new Date();
             const timeStamp = `[${time.getFullYear()}/${time.getMonth() + 1}/${time.getDate()} | ${time.toLocaleTimeString('en-US', { hour12: false })}(${time.getMilliseconds()})] > `;
-            console.log(timeStamp + message);
-        });
+            console.log(timeStamp + msg);
+        }
         if (obj) {
             console.log('', obj);
         }
