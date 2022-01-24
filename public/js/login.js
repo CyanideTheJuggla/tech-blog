@@ -6,8 +6,6 @@ const loginFormHandler = async function(event) {
     blackout.className += ' d-flex';
     const usernameEl = document.querySelector('#username');
     const passwordEl = document.querySelector('#password');
-    console.log('\nusername', usernameEl.value);
-    console.log('\npassword', passwordEl.value);
     const response = await fetch('/api/user/login', {
         method: 'POST',
         body: JSON.stringify({
@@ -20,6 +18,7 @@ const loginFormHandler = async function(event) {
     if (response.ok) {
         setInterval(()=>document.location.replace('/dash'), 750);
     } else {
+        document.location.reload();
         console.log('Failed to login');
         console.log('response', response);
     }

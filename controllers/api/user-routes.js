@@ -38,7 +38,6 @@ router.post('/login', async (req, res) => {
         }
 
         const validPassword = user.checkPassword(req.body.password);
-        console.log('validPassword', validPassword)
 
         if (!validPassword) {
             res.status(400).send({message: "Incorrect Username/Password"});

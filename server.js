@@ -14,8 +14,6 @@ const PORT = process.env.PORT;
 
 const hbs = exphbs.create({ helpers });
 
-console.log('process.env.SESS_EXP_MIN', process.env.SESS_EXP_MIN)
-
 const sess = {
   secret: 'Tech-blog secret',
   cookie: {},
@@ -29,12 +27,7 @@ const sess = {
 app.use(session(sess));
 app.use(function(req, res, next){
     try {
-        console.log('\n');
-        console.log('res.req.session', res.req.session);
-        console.log('\n');
         res.locals["loggedIn"] = res.req.session.loggedIn;
-        //req.req.session.cookie._expires = new Date().getTime() + (process.env.SESS_EXP_MIN * 60000);
-        
     } catch (error) {
         console.log('error', error);
     } finally {

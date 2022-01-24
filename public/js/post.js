@@ -5,8 +5,6 @@ const newPostHandler = async function(event) {
     const postTitle = document.querySelector('#postTitle').value;
     const postContent = document.querySelector('#postContent').value;
 
-    console.log('postTitle', postTitle);
-    console.log('postContent', postContent);
     if(postTitle.length > 3 && postContent.length > 0){
         await fetch(`/api/post`, {
             method: 'POST',
@@ -21,7 +19,7 @@ const newPostHandler = async function(event) {
             } else {
                 alertShow();
             }
-            console.log('res', res);
+            document.location.replace('/');
         });
     } else {
         alertShow();
